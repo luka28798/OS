@@ -1,0 +1,195 @@
+class Matrix 
+{
+    field int len;
+    field Array l;
+    constructor Matrix new(int n)
+    {
+        var Array r;
+        var int i, j;
+        let len = n;
+        let l = Array.new(len);
+        let i = 0;
+        while (i < len) 
+        {
+            let j = 0;
+            let r = Array.new(len);
+            while (j < len) 
+            {
+                let r[j] = 0;
+                let j = j + 1;
+            }
+            let l[i] = r;
+            let i = i + 1; 
+        }
+        return this;
+    }
+
+    method int getElem(int i, int j)
+    {
+        var int elem;
+        var Array r;
+        let r = l[i];
+        let elem = r[j];
+        return elem;
+    }
+
+    method void setElem(int x, int i, int j)
+    {
+        var Array r;
+        let r = l[i];
+        let r[j] = x;
+        return;
+    }
+    
+    method Matrix add(Matrix a)
+    {
+        var int i, j;
+        var Matrix plus;
+        var Array row_l;
+        let i = 0;
+        let j = 0;
+        let plus = Matrix.new(len);
+        while (i < len)
+        {
+            let j = 0;
+            let row_l = l[i];
+            while (j < len) 
+            {
+                do plus.setElem(a.getElem(i,j)+row_l[j], i, j);
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+        return plus;
+    }
+
+    method Matrix multScalar(int x)
+    {
+        var int i, j;
+        var Matrix MultScalar;
+        var Array row_l;
+        let MultScalar = Matrix.new(len);
+        while (i < len)
+        {
+            let j = 0;
+            let row_l = l[i];
+            while (j < len)
+            {
+                do MultScalar.setElem(x*row_l[j], i, j);
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+        return MultScalar;
+    }
+
+    method Matrix multMat(Matrix a)
+    {
+        var int i, j, result, k;
+        var Matrix MultMat;
+        var Array row_l;
+        let i = 0;
+        let j = 0;
+        let MultMat = Matrix.new(len);
+        let result = 0;
+        let k = 0;
+        while (i < len)
+        {
+            let j = 0;
+            let row_l = l[i];
+            while (j < len) 
+            {
+                let k = 0;
+                while (k < len) {
+                    let result = result + (row_l[k] * a.getElem(k, j));
+                    let k = k + 1; 
+                }
+                do MultMat.setElem(result, i, j);
+                let result = 0;
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+        return MultMat;
+    }
+    method int norm() 
+    {
+        var int i,j, sum;
+        var Array row;
+        var int fr_norm;
+        let i = 0;
+        let j = 0;
+        let sum = 0;
+        while (i < len) 
+        {
+            let row = l[i];
+            let j = 0;
+            while (j < len) 
+            {
+                let sum = sum + (Math.abs(row[j])*Math.abs(row[j]));
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+        let fr_norm = Math.sqrt(sum);
+        return fr_norm;
+    }
+    method void printMatrix() 
+    {
+        var int i, j;
+        var int elem;
+        var Array r;
+        let i = 0;
+        let j = 0;
+
+        while(i < len)
+        {
+            let r = l[i];
+            let j = 0;
+            while(j < len) 
+            {
+                let elem = r[j];
+                do Output.printInt(elem);
+                do Output.printChar(32);
+                let j = j + 1;
+            }
+            let i = i + 1;
+            do Output.println();
+        }
+        return;
+    }
+
+    function Matrix eye(int n)
+    {
+        var int i;
+        var Matrix Eye;
+        var Array row;
+        let Eye = Matrix.new(n);
+        let i = 0;
+        
+        while (i < n) 
+        {
+            do Eye.setElem(1, i, i);
+            let i = i + 1;
+        }
+        return Eye;
+    }
+
+    method void dispose() 
+    {
+        var Array row;
+        var int i;
+        let row = Array.new(len);
+        let i = 0;
+
+        while (i < len) 
+        {
+            let row = l[i];
+            do row.dispose();
+            let i = i + 1;
+        }
+        do l.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+}

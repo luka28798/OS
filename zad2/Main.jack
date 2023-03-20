@@ -1,0 +1,33 @@
+class Main 
+{
+    function void main () 
+    {
+        var int n, norma;
+        var Matrix m, c;
+        var Matrix d;
+        let n = 3;
+        let m = Matrix.new(n);
+        let c = Matrix.new(n);
+        do m.setElem(5, 1, 2);
+        do m.setElem(5, 0, 0);
+        do Output.printString("m = ");
+        do Output.println();
+        do m.printMatrix();
+        let norma = m.norm();
+        do Output.printString("Norma matrice m = ");
+        do Output.printInt(norma);
+        do Output.println();
+        let d = Matrix.eye(3);
+        do Output.printString("d = ");
+        do Output.println();
+        do d.printMatrix();
+        let c = d.multMat(m);
+        do Output.printString("c = ");
+        do Output.println();
+        do c.printMatrix();
+        do m.dispose();
+        do c.dispose();
+        do d.dispose();
+        return;
+    }
+}

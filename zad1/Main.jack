@@ -1,0 +1,25 @@
+class Main 
+{
+    function void main () 
+    {
+        var String A, B, C;
+        let A = "(1 + 2 + [3)]";
+        let B = "(1 + x + y)}}";
+        let C = "(1 + [x + y])";
+        do Output.printString("(1 + 2 + [3)]");
+        do Output.printChar(32);
+        do Output.printString(Prvizadatak.checkParentheses(A));
+        do Output.println();
+        do Output.printString("(1 + x + y)}}");
+        do Output.printChar(32);
+        do Output.printString(Prvizadatak.checkParentheses(B));
+        do Output.println();
+        do Output.printString("(1 + [x + y])");
+        do Output.printChar(32);
+        do Output.printString(Prvizadatak.checkParentheses(C));
+        do A.dispose();
+        do B.dispose();
+        do C.dispose();
+        return;
+    }
+}
