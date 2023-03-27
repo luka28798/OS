@@ -1,0 +1,27 @@
+class Main 
+{
+    function void main() 
+    {
+        do Output.printInt(Math.divide(25,4));
+        do Output.println();
+        do Output.printInt(Math.divide(-25,7));
+        do Output.println();
+        do Output.printInt(Math.divide(36,-5));
+        do Output.println();
+        do Output.printInt(Math.divide(-14,-3));
+        do Output.println();
+        do Output.printInt(Math.log(15));
+        do Output.println();
+        do Output.printInt(Math.log(1250));
+        do Output.println();
+        do Output.printInt(Math.pow(-5, 5));
+        do Output.println();
+        do Output.printInt(Math.pow(-5, 0));
+        do Output.println();
+        do Output.printInt(Math.pow(3, 3));
+        do Output.println();
+        do Output.printInt(Math.pow(-3, 3));
+        do Output.println();
+        return;
+    }
+}

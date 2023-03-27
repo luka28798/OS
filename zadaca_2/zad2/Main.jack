@@ -1,0 +1,38 @@
+class Main 
+{
+    function void main() 
+    {
+        
+        var Array arr1, arr2, arr3, arr4, arr5;
+        do Memory.poke(8053, 9);
+        do Memory.poke(8054, 3);
+        do Output.printString("Ram[2057..2060] prije kopiranja ");
+        do Output.printInt(Memory.peek(2057));
+        do Output.printInt(Memory.peek(2058));
+        do Output.printInt(Memory.peek(2059));
+        do Output.printInt(Memory.peek(2060));
+        do Output.println();
+        do Memory.memcpy(8050, 2056, 5);
+
+        do Output.printString("Ram[2057..2060] poslije kopiranja ");
+        
+        do Output.printInt(Memory.peek(2057));
+        do Output.printInt(Memory.peek(2058));
+        do Output.printInt(Memory.peek(2059));
+        do Output.printInt(Memory.peek(2060));
+        
+        do Output.println();
+        let arr1 = Array.new(50);
+        let arr2 = Array.new(50);
+        let arr3 = Array.new(50);
+        let arr4 = Array.new(50);
+        let arr5 = Array.new(50);
+        do arr1.dispose();
+        do arr2.dispose();
+        do arr3.dispose();
+        do arr4.dispose();
+        do arr5.dispose(); 
+        do Memory.defrag();
+        return;
+    }
+}
