@@ -1,0 +1,561 @@
+function Controls.init 0
+push constant 256
+pop static 0
+push constant 128
+pop static 1
+call Controls.spawnL 0
+pop temp 0
+push constant 0
+return
+function Controls.spawnL 0
+push static 0
+push static 1
+push constant 60
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 40
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Controls.rotate 0
+push argument 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 60
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 40
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 60
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE0
+push argument 0
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 60
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 40
+add
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push constant 20
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE1
+push argument 0
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 40
+add
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push constant 20
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push constant 40
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 40
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE2
+push argument 0
+push constant 3
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push constant 40
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 40
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 60
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 40
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE3
+push constant 0
+return
+function Controls.moveUp 0
+push static 1
+push constant 20
+sub
+pop static 1
+push constant 0
+return
+function Controls.moveDown 0
+push static 1
+push constant 20
+add
+pop static 1
+push constant 0
+return
+function Controls.moveLeft 0
+push static 0
+push constant 20
+sub
+pop static 0
+push constant 0
+return
+function Controls.moveRight 0
+push static 0
+push constant 20
+add
+pop static 0
+push constant 0
+return
+function Controls.eraseBeforeMove 0
+push argument 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 60
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE0
+push argument 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 40
+add
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push constant 20
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE1
+push argument 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push constant 40
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 40
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE2
+push argument 0
+push constant 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 60
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 40
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE3
+push constant 0
+return
+function Controls.drawAfterMove 0
+push argument 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 60
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 20
+add
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE0
+push argument 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+push constant 40
+add
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push constant 20
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE1
+push argument 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push constant 40
+sub
+push static 1
+push constant 20
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 40
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE2
+push argument 0
+push constant 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push static 0
+push static 1
+push constant 60
+sub
+push static 0
+push constant 20
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+push static 0
+push static 1
+push constant 20
+sub
+push static 0
+push constant 40
+add
+push static 1
+call Screen.drawRectangle 4
+pop temp 0
+label IF_FALSE3
+push constant 0
+return

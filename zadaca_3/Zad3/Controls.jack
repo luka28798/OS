@@ -1,0 +1,138 @@
+class Controls 
+{
+    static int x, y;
+    function void init() 
+    {
+        let x = 256;
+        let y = 128;
+        do Controls.spawnL();
+        return;
+    }
+
+    function void spawnL()
+    {
+        do Screen.drawRectangle(x, y-60, x+20, y);
+        do Screen.drawRectangle(x, y-20, x+40, y);
+        return;
+    }
+
+    function void rotate(int z) 
+    {
+        if (z = 0) 
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x, y-60, x+20, y);
+            do Screen.drawRectangle(x, y-20, x+40, y);
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x, y-20, x+60, y);
+            do Screen.drawRectangle(x, y-20, x+20, y+20);
+        }
+        if (z = 1)
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x, y-20, x+60, y);
+            do Screen.drawRectangle(x, y-20, x+20, y+20);
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x, y-20, x+20, y+40);
+            do Screen.drawRectangle(x-20, y-20, x+20, y);
+        }
+        if (z = 2) 
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x, y-20, x+20, y+40);
+            do Screen.drawRectangle(x-20, y-20, x+20, y);
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x-40, y-20, x+20, y);
+            do Screen.drawRectangle(x, y-40, x+20, y);
+        }
+        if (z = 3) 
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x-40, y-20, x+20, y);
+            do Screen.drawRectangle(x, y-40, x+20, y);
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x, y-60, x+20, y);
+            do Screen.drawRectangle(x, y-20, x+40, y);
+        }
+        return;
+    }
+
+    function void moveUp()
+    {
+        let y = y - 20;
+        return;
+    }
+    function void moveDown()
+    {
+        let y = y + 20; 
+        return;
+    }
+    function void moveLeft()
+    {
+        let x = x - 20;
+        return;
+    }
+    function void moveRight()
+    {
+        let x = x + 20;
+        return;
+    }
+
+    function void eraseBeforeMove(int z)
+    {
+        if (z = 1) 
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x, y-20, x+60, y);
+            do Screen.drawRectangle(x, y-20, x+20, y+20);
+        }
+        if (z = 2) 
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x, y-20, x+20, y+40);
+            do Screen.drawRectangle(x-20, y-20, x+20, y);
+        }
+        if (z = 3) 
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x-40, y-20, x+20, y);
+            do Screen.drawRectangle(x, y-40, x+20, y);
+        }
+        if (z = 0) 
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x, y-60, x+20, y);
+            do Screen.drawRectangle(x, y-20, x+40, y);
+        }
+        return;
+    }
+
+    function void drawAfterMove(int z) 
+    {
+        if (z = 1) 
+        {
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x, y-20, x+60, y);
+            do Screen.drawRectangle(x, y-20, x+20, y+20);
+        }
+        if (z = 2) 
+        {
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x, y-20, x+20, y+40);
+            do Screen.drawRectangle(x-20, y-20, x+20, y);
+        }
+        if (z = 3) 
+        {
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x-40, y-20, x+20, y);
+            do Screen.drawRectangle(x, y-40, x+20, y);
+        }
+        if (z = 0) 
+        {
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x, y-60, x+20, y);
+            do Screen.drawRectangle(x, y-20, x+40, y);
+        }
+        return;
+    }
+}

@@ -1,0 +1,57 @@
+class Main 
+{
+    function void main () 
+    {
+        var int key,z;
+        var boolean exit;
+        let key = 0;
+        do Controls.init();
+        let exit = false;
+        let z = 0;
+        while (~(exit)) 
+        {
+            do Sys.wait(100);
+            let key = Keyboard.keyPressed();
+            if (key = 140) 
+            {
+                return;
+            }
+            if (key = 82) 
+            {
+                do Controls.rotate(z);
+                
+                if (z = 3) 
+                {
+                    let z = 0;
+                }
+                else 
+                {
+                    let z = z + 1;
+                }
+                
+            }
+            if (key = 131)
+            {
+                do Controls.eraseBeforeMove(z);
+                do Controls.moveUp();
+            }
+            if (key = 133)
+            {
+                do Controls.eraseBeforeMove(z);
+                do Controls.moveDown();
+            }
+            if (key = 130) 
+            {
+                do Controls.eraseBeforeMove(z);
+                do Controls.moveLeft();
+            }
+            if (key = 132) 
+            {
+                do Controls.eraseBeforeMove(z);
+                do Controls.moveRight();
+            }
+            do Controls.drawAfterMove(z);
+        }
+        return;
+    }
+}
